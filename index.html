@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction to MPG-vehicle parameter App</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Introduction to MPG-vehicle parameter App">
+  <meta name="author" content="Ian King">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Introduction to MPG-vehicle parameter App</h1>
+    <h2>Course project for developing data products</h2>
+    <p>Ian King<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Background and Motivation</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Mileage per gallon (MPG) is an important factor to consider when buying cars  </p></li>
+<li><p>The App shows relation between MPG and four important vehicle parameters (transmission type, number of cylinders, horsepower and weight). It has two sections.  </p></li>
+<li><p>In section I of the app, you can get plots showing MPG vs. one of the parameters based on statistical data from 32 popular vehicle models  </p></li>
+<li><p>In section II, you can predict MPG by providing these parameters. The prediction is based on optimized linear regression model  </p></li>
+<li><p>This app is based on &quot;mtcars&quot; dataset and optimized linear regression.</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Section I: Figure of MPG vs. parameter</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Choose one of the four parameters in the side panel, then a figure showing MPG vs. parameter will be present in the main panel. </p>
+
+<p>For example, the plot below is showing MPG vs. transmission type.<br>
+The bold horizontal line of each box shows the MPG value of each group, the thin horizontal lines show the MPG range of each group, and the boxsize shows the sqrt of the sample size of each group.<br>
+<img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Section II: Predict MPG based on input parameters</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Input the four parameters in the side panel, then the predicted MPG value using the input parameters is shown in the main panel.  </p>
+
+<p>Input parameter range:<br>
+1. transmission type: auto,manual<br>
+2. # of cylinders: 4, 6, 8<br>
+3. horsepower: 1~500<br>
+4. weight(lb/1000): 1~8  </p>
+
+<p>The prediction is based on an optimized linear regression model of the mtcars data set (details in next slide).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Overview: dataset and linear regression model</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The &quot;mtcar&quot; data set contains mpg value and 10 other key vehicle parameters from 32 automobiles.(from R help)<br>
+Using stepwise method in MASS package, it is determined that transmission type, cylinder number, hourse power and weight are most relevant variables for predicting mpg value.<br>
+Plot below shows the residuals against the fitted value. It demonstrates the fitting is generally relaible.  </p>
+
+<pre><code class="r">fit4&lt;-lm(mpg~am+cyl+hp+wt,data=ndata)
+plot(fit4)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> <img src="assets/fig/unnamed-chunk-2-2.png" alt="plot of chunk unnamed-chunk-2"> <img src="assets/fig/unnamed-chunk-2-3.png" alt="plot of chunk unnamed-chunk-2"> <img src="assets/fig/unnamed-chunk-2-4.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Background and Motivation'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Section I: Figure of MPG vs. parameter'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Section II: Predict MPG based on input parameters'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Overview: dataset and linear regression model'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
