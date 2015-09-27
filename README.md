@@ -3,6 +3,8 @@ This repo is for the course project of Coursera course "Developing Data Products
 
 Shinny ui.R and server.R are included here
 
-The app line on Rstudio shiny server is
+The app link on Rstudio shiny server is shown below:
 
-https://ianking0000.shinyapps.io/courseraapp_ianking
+https://ianking0000.shinyapps.io/courseraapp_ianking 
+
+Welcome to try it!
